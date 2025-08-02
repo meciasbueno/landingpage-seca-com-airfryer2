@@ -122,9 +122,14 @@
             max-width: 350px;
             text-align: center;
             border: 3px solid #fff;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
 
-        .cta-button:hover {
+        .cta-button:hover,
+        .cta-button:active,
+        .cta-button:focus {
             background: linear-gradient(135deg, #b91c1c, #991b1b);
             transform: translateY(-2px);
             box-shadow: 0 12px 35px rgba(220, 38, 38, 0.5);
@@ -794,66 +799,117 @@
     </div>
 
     <script>
-        // Simple FAQ toggle
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isOpen = answer.style.display === 'block';
-                
-                // Close all answers
-                document.querySelectorAll('.faq-answer').forEach(ans => {
-                    ans.style.display = 'none';
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Update all CTA links with real checkout link FIRST
+            const checkoutUrl = 'https://receitas-inteligentes.mycartpanda.com/checkout/190960392:1';
+            document.querySelectorAll('a[href="#"]').forEach(link => {
+                link.href = checkoutUrl;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+            });
+
+            // Add click handlers for mobile compatibility
+            document.querySelectorAll('.cta-button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Ensure the link works on mobile
+                    if (this.href && this.href !== '#') {
+                        window.open(this.href, '_blank', 'noopener,noreferrer');
+                    }
                 });
                 
-                // Toggle current answer
-                if (!isOpen) {
-                    answer.style.display = 'block';
-                }
+                // Add touch event for better mobile response
+                button.addEventListener('touchstart', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                button.addEventListener('touchend', function() {
+                    this.style.transform = '';
+                });
             });
-        });
 
-        // Floating CTA visibility control
-        const floatingCta = document.querySelector('.floating-cta');
-        const heroSection = document.querySelector('.hero');
-        const finalSection = document.querySelector('.section:last-of-type');
-        
-        function toggleFloatingCta() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
+            // Simple FAQ toggle
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isOpen = answer.style.display === 'block';
+                    
+                    // Close all answers
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.style.display = 'none';
+                    });
+                    
+                    // Toggle current answer
+                    if (!isOpen) {
+                        answer.style.display = 'block';
+                    }
+                });
+            });
+
+            // Floating CTA visibility control - Enhanced for mobile
+            const floatingCta = document.querySelector('.floating-cta');
+            const heroSection = document.querySelector('.hero');
+            const finalSection = document.querySelector('.section:last-of-type');
             
-            // Get hero section bottom position
-            const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-            
-            // Get final section top position
-            const finalSectionTop = finalSection.offsetTop;
-            
-            // Show floating CTA only when:
-            // 1. User scrolled past hero section
-            // 2. User hasn't reached the final section yet
-            // 3. User is not at the very bottom of the page
-            const showCta = scrollTop > heroBottom && 
-                           scrollTop + windowHeight < finalSectionTop + 200 &&
-                           scrollTop + windowHeight < documentHeight - 100;
-            
-            if (showCta) {
-                floatingCta.classList.add('show');
-            } else {
-                floatingCta.classList.remove('show');
+            function toggleFloatingCta() {
+                try {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+                    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                    const documentHeight = Math.max(
+                        document.body.scrollHeight,
+                        document.body.offsetHeight,
+                        document.documentElement.clientHeight,
+                        document.documentElement.scrollHeight,
+                        document.documentElement.offsetHeight
+                    );
+                    
+                    if (!heroSection || !finalSection) return;
+                    
+                    // Get hero section bottom position
+                    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+                    
+                    // Get final section top position  
+                    const finalSectionTop = finalSection.offsetTop;
+                    
+                    // Show floating CTA only when:
+                    // 1. User scrolled past hero section (with buffer)
+                    // 2. User hasn't reached the final section yet
+                    // 3. User is not at the very bottom of the page
+                    const showCta = scrollTop > (heroBottom - 100) && 
+                                   scrollTop + windowHeight < finalSectionTop + 300 &&
+                                   scrollTop + windowHeight < documentHeight - 50;
+                    
+                    if (showCta) {
+                        floatingCta.classList.add('show');
+                    } else {
+                        floatingCta.classList.remove('show');
+                    }
+                } catch (error) {
+                    console.log('Floating CTA error:', error);
+                }
             }
-        }
-        
-        // Listen for scroll events
-        window.addEventListener('scroll', toggleFloatingCta);
-        
-        // Initial check
-        toggleFloatingCta();
-
-        // Update all CTA links with real checkout link
-        document.querySelectorAll('a[href="#"]').forEach(link => {
-            link.href = 'https://receitas-inteligentes.mycartpanda.com/checkout/190960392:1';
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
+            
+            // Listen for scroll events with throttling for better performance
+            let ticking = false;
+            function requestTick() {
+                if (!ticking) {
+                    requestAnimationFrame(toggleFloatingCta);
+                    ticking = true;
+                    setTimeout(() => { ticking = false; }, 16); // ~60fps
+                }
+            }
+            
+            window.addEventListener('scroll', requestTick, { passive: true });
+            window.addEventListener('resize', requestTick, { passive: true });
+            
+            // Initial check after a short delay to ensure elements are rendered
+            setTimeout(toggleFloatingCta, 100);
+            
+            // Debug info for mobile testing
+            console.log('Mobile CTA fix loaded');
+            console.log('Checkout URL:', checkoutUrl);
+            console.log('CTA buttons found:', document.querySelectorAll('.cta-button').length);
         });
     </script>
 </body>
