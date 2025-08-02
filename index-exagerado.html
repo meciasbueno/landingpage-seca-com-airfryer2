@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 SECA COM AIRFRYER - Emagreça 5KG em 7 dias! 🔥</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Urgency Bar */
+        .urgency-bar {
+            background: linear-gradient(90deg, #ff0000, #ff4500, #ff0000);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            animation: flash 1.5s infinite;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @keyframes flash {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.8; }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ff0000, #ff6600, #ffaa00);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.3) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .headline {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .promise-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ffff00;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            text-transform: uppercase;
+        }
+
+        .subheadline {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* Super CTA Button */
+        .mega-cta {
+            display: inline-block;
+            background: linear-gradient(45deg, #00ff00, #32cd32, #00ff00);
+            color: #000;
+            padding: 25px 60px;
+            font-size: 2rem;
+            font-weight: 900;
+            text-decoration: none;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 255, 0, 0.4);
+            transition: all 0.3s ease;
+            margin: 30px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 4px solid #ffff00;
+            animation: pulse-mega 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mega-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .mega-cta:hover::before {
+            left: 100%;
+        }
+
+        .mega-cta:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0, 255, 0, 0.6);
+        }
+
+        @keyframes pulse-mega {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Content Sections */
+        .section {
+            background: linear-gradient(135deg, #fff, #f0f8ff);
+            margin: 40px 0;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 3px solid #ff6600;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ff0000;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+
+        /* Emotional Connection */
+        .emotional-connection {
+            background: linear-gradient(135deg, #ff4500, #ff6347);
+            color: white;
+            text-align: center;
+        }
+
+        .emotional-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* Pain Points */
+        .pain-points {
+            background: linear-gradient(135deg, #ff1744, #d50000);
+            color: white;
+            border: 5px solid #ffff00;
+        }
+
+        .pain-list, .desire-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .pain-list li, .desire-list li {
+            padding: 15px 0;
+            font-size: 1.3rem;
+            font-weight: 700;
+            position: relative;
+            padding-left: 50px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .pain-list li::before {
+            content: "💔";
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+        }
+
+        .desire-list li::before {
+            content: "🔥";
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+        }
+
+        /* Benefits */
+        .benefits-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .benefits-list li {
+            padding: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            position: relative;
+            padding-left: 60px;
+            margin: 15px 0;
+            background: linear-gradient(90deg, #00ff00, #32cd32);
+            color: #000;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,255,0,0.3);
+        }
+
+        .benefits-list li::before {
+            content: "✅";
+            position: absolute;
+            left: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Price Highlight */
+        .price-highlight {
+            background: linear-gradient(135deg, #ffff00, #ffd700);
+            border: 5px solid #ff0000;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 15px 40px rgba(255,215,0,0.5);
+            animation: shake 3s infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+            20%, 40%, 60%, 80% { transform: translateX(2px); }
+        }
+
+        .price {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: #ff0000;
+            margin: 15px 0;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .old-price {
+            font-size: 2rem;
+            text-decoration: line-through;
+            color: #666;
+            margin-right: 20px;
+        }
+
+        .discount {
+            background: #ff0000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1.2rem;
+            margin: 10px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Testimonial */
+        .testimonial {
+            background: linear-gradient(135deg, #4caf50, #8bc34a);
+            text-align: center;
+            padding: 50px;
+            border-radius: 20px;
+            margin: 40px 0;
+            border: 4px solid #ffff00;
+        }
+
+        .testimonial-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: white;
+            font-style: italic;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .testimonial-author {
+            font-weight: 900;
+            color: #ffff00;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* Guarantee */
+        .guarantee {
+            background: linear-gradient(135deg, #2196f3, #03a9f4);
+            color: white;
+            text-align: center;
+            border: 4px solid #ffff00;
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin: 25px 0;
+            border: 3px solid #ff6600;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .faq-question {
+            background: linear-gradient(90deg, #ff6600, #ff8c00);
+            color: white;
+            padding: 25px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .faq-question::after {
+            content: "▼";
+            position: absolute;
+            right: 25px;
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+
+        .faq-answer {
+            padding: 25px;
+            background: white;
+            border-top: 2px solid #ff6600;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: none;
+        }
+
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Scarcity Elements */
+        .scarcity {
+            background: #ff0000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-weight: 900;
+            font-size: 1.3rem;
+            margin: 20px 0;
+            border-radius: 10px;
+            animation: urgent 2s infinite;
+            text-transform: uppercase;
+        }
+
+        @keyframes urgent {
+            0%, 100% { background: #ff0000; }
+            50% { background: #cc0000; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .headline {
+                font-size: 3rem;
+            }
+            
+            .promise-title {
+                font-size: 1.6rem;
+            }
+            
+            .subheadline {
+                font-size: 1.2rem;
+            }
+            
+            .section {
+                padding: 30px 20px;
+                margin: 20px 0;
+            }
+            
+            .mega-cta {
+                padding: 20px 40px;
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Special Effects */
+        .glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff0000, 0 0 40px #ff0000; }
+            to { text-shadow: 0 0 20px #fff, 0 0 30px #ff4500, 0 0 40px #ff4500, 0 0 50px #ff4500; }
+        }
+
+        .countdown {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #ff0000;
+            text-align: center;
+            margin: 20px 0;
+            animation: countdown-blink 1s infinite;
+        }
+
+        @keyframes countdown-blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Urgency Bar -->
+    <div class="urgency-bar">
+        🚨 OFERTA LIMITADA: Apenas 24 HORAS para garantir seu desconto! 🚨
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="headline glow">🔥 PERCA 5KG EM 7 DIAS 🔥</h1>
+                
+                <h2 class="promise-title">⚡ MÉTODO REVOLUCIONÁRIO SECA COM AIRFRYER ⚡</h2>
+                
+                <p class="subheadline">💥 TRANSFORME SEU CORPO COMENDO DELICIOSAMENTE - GARANTIDO OU SEU DINHEIRO DE VOLTA! 💥</p>
+                
+                <div class="scarcity">
+                    ⏰ ÚLTIMAS 50 VAGAS DISPONÍVEIS ⏰
+                </div>
+                
+                <a href="#" class="mega-cta">🚀 QUERO EMAGRECER AGORA - R$7,99 🚀</a>
+                
+                <div class="countdown">
+                    ⏳ OFERTA EXPIRA EM: 23:45:12 ⏳
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emotional Connection -->
+    <section class="section emotional-connection">
+        <div class="container">
+            <h2 class="section-title">💔 VOCÊ ESTÁ CANSADA DISSO?</h2>
+            <p class="emotional-text">
+                "Se você já chorou olhando no espelho... Se já se sentiu envergonhada na praia... Se já evitou fotos... ESTE É O SEU MOMENTO DE VIRADA!"
+            </p>
+            <p class="emotional-text">
+                🔥 CHEGA DE SOFRER! CHEGA DE DIETAS IMPOSSÍVEIS! CHEGOU A HORA DE EMAGRECER COMENDO GOSTOSO! 🔥
+            </p>
+        </div>
+    </section>
+
+    <!-- Pain Points and Desires -->
+    <section class="section pain-points">
+        <div class="container">
+            <h2 class="section-title">💥 PARE DE SOFRER COM ISSO:</h2>
+            
+            <ul class="pain-list">
+                <li>DIETAS MALUCAS que te fazem passar FOME e DESISTIR em 3 dias!</li>
+                <li>RECEITAS COMPLICADAS que tomam HORAS da sua vida!</li>
+                <li>COMEÇAR SEGUNDA motivada e na QUARTA já estar comendo besteira!</li>
+                <li>CULPA TERRÍVEL toda vez que come algo gostoso!</li>
+            </ul>
+
+            <h2 class="section-title" style="color: #ffff00; margin-top: 40px;">🔥 IMAGINE VOCÊ:</h2>
+            <ul class="desire-list">
+                <li>VESTINDO aquela roupa que não cabe há ANOS!</li>
+                <li>RECEBENDO elogios e olhares de ADMIRAÇÃO!</li>
+                <li>SE SENTINDO uma DEUSA toda vez que se olha no espelho!</li>
+                <li>COMENDO GOSTOSO e ainda EMAGRECENDO!</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Product Description -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">📘 SECA COM AIRFRYER - O MÉTODO QUE FUNCIONA!</h2>
+            <p style="font-size: 1.4rem; text-align: center; line-height: 1.8; font-weight: 700; color: #333;">
+                🚀 <strong>21 RECEITAS REVOLUCIONÁRIAS</strong> que vão DERRETER sua gordura em apenas 7 dias!<br><br>
+                ⚡ Sem FOME, sem SOFRIMENTO, sem COMPLICAÇÃO - apenas RESULTADOS REAIS!<br><br>
+                💥 <strong>MÉTODO CIENTÍFICO COMPROVADO</strong> usado por milhares de mulheres!
+            </p>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">🎯 RESULTADOS GARANTIDOS:</h2>
+            <ul class="benefits-list">
+                <li>PERCA ATÉ 5KG EM 7 DIAS - sem passar fome!</li>
+                <li>ELIMINE A BARRIGA INCHADA em 48 horas!</li>
+                <li>TENHA MAIS ENERGIA que uma adolescente!</li>
+                <li>DURMA MELHOR e ACORDE RENOVADA!</li>
+                <li>AUTOESTIMA LÁ EM CIMA - se sinta uma DEUSA!</li>
+                <li>ECONOMIZE TEMPO e DINHEIRO com receitas práticas!</li>
+            </ul>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="mega-cta">💥 QUERO MINHA TRANSFORMAÇÃO - R$7,99 💥</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price Highlight -->
+    <section class="price-highlight">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #ff0000; font-weight: 900;">🔥 OFERTA RELÂMPAGO 🔥</h2>
+            <div style="margin: 20px 0;">
+                <span class="old-price">R$ 97,00</span>
+                <div class="price">R$ 7,99</div>
+                <div class="discount">92% DE DESCONTO!</div>
+            </div>
+            <p style="font-size: 1.3rem; color: #333; font-weight: 700;">
+                ⚡ ACESSO IMEDIATO • 🛡️ GARANTIA TOTAL • 🎯 RESULTADOS EM 7 DIAS
+            </p>
+            <a href="#" class="mega-cta" style="margin-top: 30px;">🚀 SIM! QUERO EMAGRECER POR R$7,99 🚀</a>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="testimonial">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">🌟 RESULTADO REAL:</h2>
+            <p class="testimonial-text">
+                "PERDI 4KG EM 6 DIAS! Não acreditei quando subi na balança! As receitas são DELICIOSAS e meu marido até pediu pra fazer pra ele também! MUDOU MINHA VIDA!"
+            </p>
+            <p class="testimonial-author">– Carla Santos, 34 anos - São Paulo/SP</p>
+        </div>
+    </section>
+
+    <!-- Guarantee -->
+    <section class="section guarantee">
+        <div class="container">
+            <h2 class="section-title">🛡️ GARANTIA BLINDADA 100%</h2>
+            <p style="font-size: 1.4rem; text-align: center; line-height: 1.8; font-weight: 700;">
+                💥 <strong>GARANTIA INCONDICIONAL DE 7 DIAS!</strong><br><br>
+                Se você não PERDER PESO ou não AMAR o material, devolvemos 100% do seu dinheiro SEM PERGUNTAS!<br><br>
+                🔒 <strong>RISCO ZERO PARA VOCÊ!</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">❓ DÚVIDAS FREQUENTES:</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">RECEBO O EBOOK NA HORA?</div>
+                <div class="faq-answer">SIM! Assim que o pagamento for aprovado, você recebe IMEDIATAMENTE no seu e-mail!</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">FUNCIONA MESMO OU É MAIS UMA ENGANAÇÃO?</div>
+                <div class="faq-answer">FUNCIONA SIM! São receitas CIENTIFICAMENTE desenvolvidas para acelerar o metabolismo e queimar gordura. Milhares de mulheres já comprovaram!</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">PRECISO FAZER EXERCÍCIOS PESADOS?</div>
+                <div class="faq-answer">NÃO! O método funciona apenas com as receitas. Se fizer uma caminhada leve, os resultados podem ser ainda MELHORES!</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">E SE EU NÃO TIVER AIRFRYER?</div>
+                <div class="faq-answer">O método foi desenvolvido ESPECIFICAMENTE para Airfryer. É o segredo do sucesso! Mas vale muito a pena investir numa - você vai usar pra sempre!</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">E SE EU NÃO GOSTAR?</div>
+                <div class="faq-answer">IMPOSSÍVEL não gostar! Mas se acontecer, você tem 7 dias para pedir reembolso TOTAL. Sem complicação!</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section" style="background: linear-gradient(135deg, #ff0000, #ff4500); color: white; border: 5px solid #ffff00;">
+        <div class="container" style="text-align: center;">
+            <h2 style="color: #ffff00; font-size: 3rem; margin-bottom: 25px; font-weight: 900;">⚡ ÚLTIMA CHANCE! ⚡</h2>
+            <p style="font-size: 1.5rem; margin-bottom: 30px; font-weight: 700;">
+                🚨 NÃO DEIXE ESSA OPORTUNIDADE PASSAR! 🚨<br>
+                AMANHÃ PODE SER TARDE DEMAIS!
+            </p>
+            <a href="#" class="mega-cta" style="background: linear-gradient(45deg, #ffff00, #ffd700); color: #000; border: 4px solid #ff0000;">🔥 SIM! QUERO EMAGRECER AGORA - R$7,99 🔥</a>
+            <p style="margin-top: 25px; font-size: 1.2rem; font-weight: 700;">
+                ✅ ACESSO IMEDIATO<br>
+                ✅ GARANTIA TOTAL DE 7 DIAS<br>
+                ✅ SUPORTE COMPLETO<br>
+                ✅ RESULTADOS EM 7 DIAS OU SEU DINHEIRO DE VOLTA!
+            </p>
+        </div>
+    </section>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+        <a href="#" class="mega-cta" style="font-size: 1.3rem; padding: 15px 30px;">🔥 COMPRAR R$7,99 🔥</a>
+    </div>
+
+    <script>
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.style.display = 'none';
+                });
+                
+                if (!isOpen) {
+                    answer.style.display = 'block';
+                }
+            });
+        });
+
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0);
+            
+            const distance = tomorrow - now;
+            
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.querySelector('.countdown').innerHTML = 
+                `⏳ OFERTA EXPIRA EM: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ⏳`;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Update all CTA links
+        document.querySelectorAll('a[href="#"]').forEach(link => {
+            link.href = 'https://checkout-link-aqui.com'; // TODO: Replace with actual link
+        });
+    </script>
+</body>
+</html>
