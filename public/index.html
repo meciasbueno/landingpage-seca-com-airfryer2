@@ -4,26 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seca com Airfryer - Emagreça em 7 dias com receitas saudáveis</title>
+    <meta name="description" content="Emagreça em 7 dias com receitas saudáveis na Airfryer. Plano alimentar completo com 21+ receitas práticas por apenas R$7,99.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="capa-ebook-seca-com-airfryer.png" as="image">
     
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '24221426797512542');
-    fbq('track', 'PageView');
-    fbq('track', 'ContentView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=24221426797512542&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
     <style>
         * {
             margin: 0;
@@ -555,16 +541,6 @@
     </style>
 </head>
 <body>
-    <!-- UTMify Script -->
-    <script
-      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-      data-utmify-prevent-xcod-sck
-      data-utmify-prevent-subids
-      data-utmify-ignore-iframe
-      data-utmify-is-cartpanda
-      async
-      defer
-    ></script>
 
     <!-- Urgency Banner -->
     <div class="urgency-banner">
@@ -832,30 +808,22 @@
         // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
             
-            // Update all CTA links with real checkout link FIRST
+            // Update all CTA links with real checkout link - NO POPUPS
             const checkoutUrl = 'https://receitas-inteligentes.mycartpanda.com/checkout/190960392:1';
             document.querySelectorAll('a[href="#"]').forEach(link => {
                 link.href = checkoutUrl;
-                link.target = '_blank';
-                link.rel = 'noopener noreferrer';
+                // Remove target="_blank" to avoid popup blockers
+                link.removeAttribute('target');
+                link.removeAttribute('rel');
             });
 
-            // Add click handlers for mobile compatibility
+            // Simplified click handlers - direct navigation only
             document.querySelectorAll('.cta-button').forEach(button => {
                 button.addEventListener('click', function(e) {
-                    // Ensure the link works on mobile
+                    // Direct navigation without popups
                     if (this.href && this.href !== '#') {
-                        window.open(this.href, '_blank', 'noopener,noreferrer');
+                        window.location.href = this.href;
                     }
-                });
-                
-                // Add touch event for better mobile response
-                button.addEventListener('touchstart', function() {
-                    this.style.transform = 'translateY(-2px)';
-                });
-                
-                button.addEventListener('touchend', function() {
-                    this.style.transform = '';
                 });
             });
 
@@ -943,14 +911,47 @@
         });
     </script>
 
-    <!-- UTMify Pixel Script -->
+    <!-- Optimized Tracking Scripts - Load after user interaction -->
     <script>
-      window.pixelId = "689a884778937937030a7532";
-      var a = document.createElement("script");
-      a.setAttribute("async", "");
-      a.setAttribute("defer", "");
-      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-      document.head.appendChild(a);
+        // Load tracking scripts only after user interaction for better performance
+        let trackingLoaded = false;
+        
+        function loadTracking() {
+            if (trackingLoaded) return;
+            trackingLoaded = true;
+            
+            // Meta Pixel
+            !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '24221426797512542');
+            fbq('track', 'PageView');
+            
+            // UTMify Scripts
+            const utmScript = document.createElement('script');
+            utmScript.src = 'https://cdn.utmify.com.br/scripts/utms/latest.js';
+            utmScript.setAttribute('data-utmify-prevent-xcod-sck', '');
+            utmScript.setAttribute('data-utmify-prevent-subids', '');
+            utmScript.setAttribute('data-utmify-ignore-iframe', '');
+            utmScript.setAttribute('data-utmify-is-cartpanda', '');
+            utmScript.async = true;
+            utmScript.defer = true;
+            document.head.appendChild(utmScript);
+            
+            // UTMify Pixel
+            window.pixelId = "689a884778937937030a7532";
+            const pixelScript = document.createElement("script");
+            pixelScript.async = true;
+            pixelScript.defer = true;
+            pixelScript.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
+            document.head.appendChild(pixelScript);
+        }
+        
+        // Load tracking on first user interaction
+        ['click', 'scroll', 'touchstart', 'keydown'].forEach(event => {
+            document.addEventListener(event, loadTracking, { once: true, passive: true });
+        });
+        
+        // Fallback: load after 3 seconds if no interaction
+        setTimeout(loadTracking, 3000);
     </script>
 </body>
 </html>
